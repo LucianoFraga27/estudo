@@ -1,6 +1,6 @@
 spring:
  datasource:
-  url: jdbc:mysql://localhost/testeprojeto
+  url: jdbc:mysql://localhost/LOGOS?createDatabaseIfNotExist=true&serverTimezone=UTC
   username: root
   password: 1234
   jpa:
