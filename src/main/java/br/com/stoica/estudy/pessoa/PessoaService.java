@@ -10,4 +10,5 @@ public interface PessoaService {
     Page<?> findAll(Pageable pageable);
     Pessoa findById(Long id);
     void gerarCsvBasico();
+    void lerCsvBasico(String path);
 }

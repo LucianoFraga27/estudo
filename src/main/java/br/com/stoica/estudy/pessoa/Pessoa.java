@@ -28,4 +28,9 @@ public class Pessoa {
     @CPF
     private String cpf;
 
+    @Override
+    public String toString() {
+        return String.format("ID: %d Nome :%s Cpf: %s", id, nome, cpf);
+    }
+
 }

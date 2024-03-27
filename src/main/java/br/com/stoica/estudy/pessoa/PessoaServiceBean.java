@@ -32,6 +32,14 @@ public class PessoaServiceBean implements PessoaService{
         List<Pessoa> pessoas = repository.findAll();
         csvService.gerarCsvBasico(pessoas);
     }
+
+    @Override
+    public void lerCsvBasico(String path) {
+        List<Pessoa> pessoas = csvService.lerCsvBasico(path);
+        if (!pessoas.isEmpty()) {
+            repository.saveAll(pessoas);
+        }
+    }
     
     
 

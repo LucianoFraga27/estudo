@@ -30,9 +30,14 @@ public class PessoaController {
         return pessoaService.findById(id);
     }
 
-    @GetMapping("/gerar-csv")
+    @GetMapping("/basico/gerar-csv")
     public void gerarCsvBasico() {
         pessoaService.gerarCsvBasico();
+    }
+
+    @GetMapping("/basico/ler-csv")
+    public void lerCsvBasico() {
+        pessoaService.lerCsvBasico("path");
     }
     
     
