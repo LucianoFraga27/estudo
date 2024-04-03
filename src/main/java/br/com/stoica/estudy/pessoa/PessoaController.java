@@ -9,6 +9,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestParam;
+
 
 
 @RestController
@@ -27,5 +29,16 @@ public class PessoaController {
     public Pessoa findById (@PathVariable(value = "id") Long id) {
         return pessoaService.findById(id);
     }
+
+    @GetMapping("/basico/gerar-csv")
+    public void gerarCsvBasico() {
+        pessoaService.gerarCsvBasico();
+    }
+
+    @GetMapping("/basico/ler-csv")
+    public void lerCsvBasico() {
+        pessoaService.lerCsvBasico("path");
+    }
+    
     
 }

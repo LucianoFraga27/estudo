@@ -16,6 +16,7 @@ import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
 import br.com.stoica.estudy.pessoa.PessoaNaoEncontradaException;
+import jakarta.validation.ConstraintViolationException;
 
 @ControllerAdvice
 public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
@@ -29,6 +30,16 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         problemDetail.setType(URI.create("recurso-nao-encontrado"));
         return ResponseEntity.of(problemDetail).build();
         }
+    
+    @ExceptionHandler({ConstraintViolationException.class})
+    public ResponseEntity<?> handleConstraintViolationException (WebRequest request, ConstraintViolationException ex) {
+        ProblemDetail problemDetail = ProblemDetail.forStatus(400);
+        problemDetail.setTitle("Violação de constraint");
+        problemDetail.setDetail(ex.getMessage());
+        problemDetail.setType(URI.create("violacao-constraint"));
+        return ResponseEntity.of(problemDetail).build();
+        }
+    
 
 
 
