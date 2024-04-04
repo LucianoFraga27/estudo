@@ -56,6 +56,26 @@
 			<artifactId>flyway-mysql</artifactId>
 		</dependency>
 		
+		<!-- Jasper reports 
+		Lib para fazer a integração do jasper com java
+		-->
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports</artifactId>
+			<version>6.21.2</version>
+		</dependency>
+
+		<!--
+			jasperreports-functions | quando usamos funções de formatação no relatório por exemplo
+		-->
+		<dependency>
+			<groupId>net.sf.jasperreports</groupId>
+			<artifactId>jasperreports-functions</artifactId>
+			<version>6.21.2</version>
+		</dependency>
+	
+		<!-- -->
+
 	</dependencies>
 
 	<build>
