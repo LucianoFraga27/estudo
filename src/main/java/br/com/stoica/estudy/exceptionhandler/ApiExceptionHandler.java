@@ -15,6 +15,7 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.context.request.WebRequest;
 import org.springframework.web.servlet.mvc.method.annotation.ResponseEntityExceptionHandler;
 
+import br.com.stoica.estudy.jasper.FalhaAoCriarRelatorio;
 import br.com.stoica.estudy.pessoa.PessoaNaoEncontradaException;
 import jakarta.validation.ConstraintViolationException;
 
@@ -40,6 +41,14 @@ public class ApiExceptionHandler extends ResponseEntityExceptionHandler {
         return ResponseEntity.of(problemDetail).build();
         }
     
+        @ExceptionHandler({FalhaAoCriarRelatorio.class})
+        public ResponseEntity<?> handleFalhaAoCriarRelatorio (WebRequest request, FalhaAoCriarRelatorio ex) {
+            ProblemDetail problemDetail = ProblemDetail.forStatus(500);
+            problemDetail.setTitle("Falha ao gerar relário");
+            problemDetail.setDetail("Não foi possível gerar relatório desejado");
+            problemDetail.setType(URI.create("jasper-error"));
+            return ResponseEntity.of(problemDetail).build();
+            }
 
 
 
