@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.RestController;
 
 import jakarta.validation.Valid;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
 
 
 @RequestMapping("/email")
@@ -17,7 +18,7 @@ public class EmailController {
     private EmailService emailService;
 
     
-    @GetMapping(path="/send")
+    @PostMapping(path="/send")
     public void getMethodName(@RequestBody @Valid EmailDTO emailDTO) {
         emailService.sendEmail(emailDTO);
     }
