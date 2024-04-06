@@ -76,6 +76,14 @@
 	
 		<!-- -->
 
+		<!-- Devemos configurar algumas coisas no app.yml-->
+		<!-- GUI PARA GERAR PASSWORD 
+		https://support.google.com/accounts/answer/185833
+		-->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-mail</artifactId>
+		</dependency>
 	</dependencies>
 
 	<build>
