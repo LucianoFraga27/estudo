@@ -1,6 +1,7 @@
 package br.com.stoica.estudy.email;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.mail.MailException;
 import org.springframework.mail.SimpleMailMessage;
 import org.springframework.mail.javamail.JavaMailSender;
@@ -12,6 +13,7 @@ public class EmailService {
     @Autowired
     private JavaMailSender javaMailSender;
 
+
     public void sendEmail(EmailDTO emailDTO) {
         try {
             SimpleMailMessage message = new SimpleMailMessage();
@@ -21,7 +23,7 @@ public class EmailService {
             message.setText(emailDTO.getText());
             javaMailSender.send(message);
         } catch (MailException e) {
-            throw new RuntimeException ("Falha ao enviar email");
+            throw new RuntimeException (e);
         } 
     }
     
