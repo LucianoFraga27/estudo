@@ -1,7 +1,6 @@
 spring:
-  profiles:
-    active:
-    - dev
+  api-docs:
+    path: /api-docs
   datasource:
     url: jdbc:mysql://localhost/LOGOS?createDatabaseIfNotExist=true&serverTimezone=UTC
     username: root
