@@ -5,7 +5,11 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestController;
 
 import br.com.stoica.estudy.jasper.PessoaJasper;
+import io.swagger.v3.oas.annotations.Operation;
+import io.swagger.v3.oas.annotations.responses.ApiResponses;
+import io.swagger.v3.oas.annotations.responses.ApiResponse;
 
+import org.springdoc.core.annotations.ParameterObject;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import org.springframework.data.domain.Page;
@@ -29,8 +33,12 @@ public class PessoaController {
     @Autowired
     private PessoaJasper jasper;
 
+
+    @Operation(summary = "Liste as pessoas")
+    @ApiResponses(value = { 
+    @ApiResponse(responseCode = "200", description = "Sucesso")})
     @GetMapping(produces= MediaType.APPLICATION_JSON_VALUE)
-    public Page<?> findAll (Pageable pageable) {
+    public Page<?> findAll (@ParameterObject Pageable pageable) {
         return pessoaService.findAll(pageable);
     }
 
