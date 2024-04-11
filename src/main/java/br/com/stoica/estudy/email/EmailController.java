@@ -1,5 +1,6 @@
 package br.com.stoica.estudy.email;
 
+import org.springframework.data.domain.Pageable;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.web.bind.annotation.RequestBody;
@@ -26,4 +27,10 @@ public class EmailController {
         System.out.println(emailCONFIG.getPassword());
         emailService.sendEmail(emailDTO);
     }
+    
+    @PostMapping(path="/send/relatorio")
+    public void enviarRelatorio(@RequestBody @Valid EmailDTO emailDTO ,Pageable pageable) {
+        emailService.sendRelatorio(emailDTO,pageable);
+    }
+    
 }
