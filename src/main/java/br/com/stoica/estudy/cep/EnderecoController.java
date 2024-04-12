@@ -14,7 +14,7 @@ public class EnderecoController {
     private ViaCepClient viaCepClient;
 
     @GetMapping("/{cep}")
-    public Endereco getEndereco(@PathVariable String cep) {
+    public EnderecoDTO getEndereco(@PathVariable String cep) {
         return viaCepClient.getEndereco(cep); 
     }
 }
