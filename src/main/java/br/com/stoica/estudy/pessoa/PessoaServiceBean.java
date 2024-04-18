@@ -5,6 +5,8 @@ import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import java.util.List;
+
+import br.com.stoica.estudy.cep.EnderecoRepository;
 import br.com.stoica.estudy.csv.CsvService;
 import io.micrometer.common.lang.NonNull;
 
@@ -16,6 +18,9 @@ public class PessoaServiceBean implements PessoaService{
 
     @Autowired
     private PessoaRepository repository;
+
+    @Autowired
+    private EnderecoRepository eRepository;
 
     @Override
     public Page<?> findAll(@NonNull Pageable pageable) {
@@ -40,7 +45,11 @@ public class PessoaServiceBean implements PessoaService{
             repository.saveAll(pessoas);
         }
     }
-    
+
+    @Override
+    public Pessoa salvar(Pessoa pessoa) {
+        return repository.save(pessoa);
+    }
     
 
 }

@@ -11,4 +11,5 @@ public interface PessoaService {
     Pessoa findById(Long id);
     void gerarCsvBasico();
     void lerCsvBasico(String path);
+    Pessoa salvar(Pessoa pessoa);
 }
