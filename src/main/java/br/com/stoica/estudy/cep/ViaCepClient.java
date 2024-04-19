@@ -8,6 +8,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 public interface ViaCepClient {
     
     @GetMapping("/{cep}/json")
-    EnderecoDTO getEndereco(@PathVariable String cep);
+    Endereco getEndereco(@PathVariable String cep);
 
 }
